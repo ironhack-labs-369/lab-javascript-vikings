@@ -19,7 +19,8 @@ class Viking extends Soldier {
         this.name = name;
     }
     receiveDamage(damage) {
-        this.health -= damage;
+        // this.health -= damage;
+        super.receiveDamage(damage);
         if (this.health > 0) {
             return `${this.name} has received ${damage} points of damage`;
         } else {
@@ -34,7 +35,8 @@ class Viking extends Soldier {
 // Saxon
 class Saxon extends Soldier {
     receiveDamage(damage) {
-        this.health -= damage;
+        // this.health -= damage;
+        super.receiveDamage(damage);
         if (this.health > 0) {
             return `A Saxon has received ${damage} points of damage`;
         } else {
@@ -79,13 +81,12 @@ class War {
         return vikDamage;
     }
     showStatus() {
-        if (this.saxonArmy.length === 0) {
+        if (!this.saxonArmy.length) {
             return 'Vikings have won the war of the century!';
-        } else if (this.vikingArmy.length === 0) {
+        } else if (!this.vikingArmy.length) {
             return 'Saxons have fought for their lives and survived another day...';
-        } else {
-            return 'Vikings and Saxons are still in the thick of battle.';
         }
+
+        return 'Vikings and Saxons are still in the thick of battle.';
     }
-    attack(firstArmy, secondarmy) {}
 }
