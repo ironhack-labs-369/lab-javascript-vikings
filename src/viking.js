@@ -19,7 +19,7 @@ class Viking extends Soldier {
         this.name = name;
     }
     receiveDamage(damage) {
-        this.health = this.health - damage;
+        this.health -= damage;
         if (this.health > 0) {
             return `${this.name} has received ${damage} points of damage`;
         } else {
@@ -34,7 +34,7 @@ class Viking extends Soldier {
 // Saxon
 class Saxon extends Soldier {
     receiveDamage(damage) {
-        this.health = this.health - damage;
+        this.health -= damage;
         if (this.health > 0) {
             return `A Saxon has received ${damage} points of damage`;
         } else {
@@ -50,11 +50,11 @@ class War {
         this.saxonArmy = [];
     }
 
-    addViking(Viking) {
-        this.vikingArmy.push(Viking);
+    addViking(viking) {
+        this.vikingArmy.push(viking);
     }
-    addSaxon(Saxon) {
-        this.saxonArmy.push(Saxon);
+    addSaxon(saxon) {
+        this.saxonArmy.push(saxon);
     }
     vikingAttack() {
         let vikingIndex = Math.floor(Math.random() * this.vikingArmy.length);
