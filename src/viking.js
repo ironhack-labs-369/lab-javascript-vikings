@@ -89,4 +89,15 @@ class War {
 
         return 'Vikings and Saxons are still in the thick of battle.';
     }
+    attack(attackArmy, defendArmy) {
+        let attackerIndex = Math.floor(Math.random() * this.attackArmy.length);
+        let defenderIndex = Math.floor(Math.random() * this.defendArmy.length);
+        let attacker = attackArmy[attackerIndex];
+        let defender = defendArmy[defenderIndex];
+        const damage = defender.receiveDamage(attacker.strength);
+        if (defender.health < 1) {
+            defenderArmy.splice(defenderIndex, 1);
+        }
+        return damage;
+    }
 }
